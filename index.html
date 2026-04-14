@@ -1,1 +1,243 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>www.AndyWalsh.Com</title>
+    <meta name="description" content="Andy Walsh, Deputy Chancellor, College of Information and Cyberspace, National Defense University">
+    <style>
+        @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap;
+            src: url('https://walsh.es/logo/fonts/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW32.woff2') format('woff2'); }
+        @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap;
+            src: url('https://walsh.es/logo/fonts/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxRSW32.woff2') format('woff2'); }
+        @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 600; font-display: swap;
+            src: url('https://walsh.es/logo/fonts/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAfJtRSW32.woff2') format('woff2'); }
+        @font-face { font-family: 'Source Serif 4'; font-style: normal; font-weight: 400; font-display: swap;
+            src: url('https://walsh.es/logo/fonts/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhtdDg.woff2') format('woff2'); }
+        @font-face { font-family: 'Source Serif 4'; font-style: normal; font-weight: 600; font-display: swap;
+            src: url('https://walsh.es/logo/fonts/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjisltnhtdDg.woff2') format('woff2'); }
+
+        :root {
+            --f-body: 'DM Sans', system-ui, sans-serif;
+            --f-head: 'Source Serif 4', Georgia, serif;
+            --bg: #f4f7f4; --surface: #fff; --text: #1a1f1a; --muted: #4a5a4a;
+            --accent: #1a7a2e; --accent-light: #e4f2e6; --border: #d0ddd0; --link: #1a7a2e;
+            --max-w: 46rem;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a100a; --surface: #111a11; --text: #c8e6c8; --muted: #7aaa7a;
+                --accent: #33ff33; --accent-light: #0f1f0f; --border: #1e2e1e; --link: #33ff33;
+            }
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 17px; scroll-behavior: smooth; }
+        body { font-family: var(--f-body); background: var(--bg); color: var(--text); line-height: 1.7; }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (prefers-color-scheme: dark) {
+            body::after {
+                content: '';
+                position: fixed; inset: 0;
+                background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
+                pointer-events: none; z-index: 9999;
+            }
+        }
+
+        .header {
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .header-inner {
+            max-width: var(--max-w); margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 0.5rem;
+        }
+        .site-name {
+            font-family: var(--f-head); font-size: 1.2rem; font-weight: 600;
+            color: var(--text); letter-spacing: -0.01em;
+        }
+        .site-name:hover { text-decoration: none; }
+        nav { display: flex; gap: 0.15rem; flex-wrap: wrap; }
+        nav a {
+            padding: 0.3rem 0.65rem; border-radius: 5px;
+            font-size: 0.85rem; font-weight: 500; color: var(--muted);
+            transition: background 0.15s, color 0.15s;
+        }
+        nav a:hover { background: var(--accent-light); color: var(--accent); text-decoration: none; }
+
+        .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+        section:last-of-type { border-bottom: none; }
+        .section-title {
+            font-family: var(--f-head); font-size: 1.8rem; font-weight: 600;
+            margin-bottom: 1.25rem; letter-spacing: -0.02em;
+        }
+
+        .hero { padding: 4rem 0 3rem; border-bottom: 1px solid var(--border); }
+        .hero-grid { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; align-items: start; }
+        .hero-photo {
+            width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+            border: 3px solid var(--accent);
+        }
+        .hero-text h1 {
+            font-family: var(--f-head); font-size: 2.2rem; font-weight: 600;
+            letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.3rem;
+        }
+        .hero-subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+        .hero-text p { margin-bottom: 0.75rem; }
+
+        .social-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+        .social-links a {
+            display: inline-block; padding: 0.3rem 0.7rem;
+            border: 1px solid var(--border); border-radius: 5px;
+            font-size: 0.82rem; font-weight: 500; color: var(--muted);
+            transition: all 0.15s;
+        }
+        .social-links a:hover {
+            border-color: var(--accent); color: var(--accent);
+            background: var(--accent-light); text-decoration: none;
+        }
+
+        .content p { margin-bottom: 0.9rem; }
+        .content ul { margin: 0 0 1rem 1.5rem; }
+        .content li { margin-bottom: 0.4rem; }
+
+        .post-item { padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-item-title { font-family: var(--f-head); font-weight: 600; font-size: 1.05rem; }
+        .post-item-date { font-size: 0.82rem; color: var(--muted); }
+        .post-item-desc { font-size: 0.92rem; color: var(--muted); margin-top: 0.15rem; }
+
+        .btn {
+            display: inline-block; padding: 0.5rem 1.2rem;
+            background: var(--accent); color: var(--bg);
+            border-radius: 6px; font-weight: 600; font-size: 0.9rem;
+            transition: opacity 0.15s;
+        }
+        .btn:hover { opacity: 0.85; text-decoration: none; }
+
+        footer {
+            text-align: center; padding: 2rem 1.5rem;
+            font-size: 0.82rem; color: var(--muted);
+        }
+
+        @media (max-width: 600px) {
+            html { font-size: 16px; }
+            .hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+            .hero-photo { width: 120px; height: 120px; }
+            .social-links { justify-content: center; }
+            .header-inner { padding: 0.8rem 1rem; }
+            .wrap { padding: 0 1rem; }
+            section { padding: 2rem 0; }
+            .hero { padding: 2.5rem 0 2rem; }
+        }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        .fade { animation: fadeUp 0.5s ease both; }
+        .fade-d1 { animation-delay: 0.1s; }
+        .fade-d2 { animation-delay: 0.2s; }
+        .fade-d3 { animation-delay: 0.3s; }
+        .fade-d4 { animation-delay: 0.4s; }
+        .fade-d5 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="#top" class="site-name">www.AndyWalsh.Com</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#blog">Blog</a>
+            <a href="#resume">Résumé</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero" id="top">
+    <div class="wrap">
+        <div class="hero-grid fade">
+            <img src="https://walsh.es/logo/Walsh2.jpg?variant=small" alt="Andrew V. Walsh" class="hero-photo">
+            <div class="hero-text">
+                <h1>Andy Walsh</h1>
+                <div class="hero-subtitle">
+                    Deputy Chancellor, College of Information and Cyberspace<br>
+                    National Defense University &middot; Washington, DC
+                </div>
+                <p>Technology leader in the U.S. Government. I mainly use my websites to test new technology and keep my skills current. Hobbies include running, swimming, hiking, biking, motorcycles, travel, photography, and anything to do with new or emerging technology.</p>
+                <div class="social-links">
+                    <a href="https://bsky.social">Bluesky</a>
+                    <a href="https://www.linkedin.com/in/andyvwalsh/">LinkedIn</a>
+                    <a href="https://mastodon.social/@andywalsh">Mastodon</a>
+                    <a href="https://www.strava.com/athletes/7854574">Strava</a>
+                    <a href="mailto:andy@andywalsh.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="about">
+    <div class="wrap fade fade-d1">
+        <h2 class="section-title">About Me</h2>
+        <div class="content">
+            <p>I am a Technology Leader that works for the U.S. Government usually overseas, but currently assigned as Deputy Chancellor of the College of Information and Cyberspace at the National Defense University in Washington, DC.</p>
+            <p><a href="https://cic.ndu.edu/About/Faculty-Staff/Article-View/Article/3859406/andrew-walsh/">Official NDU Bio</a></p>
+            <p>My assignments have taken me from Munich, Germany to Brussels, Belgium with stops in Kenya, China, Nicaragua, the UK, and even a bit of time in Haiti, Somalia and Afghanistan. My teams focus on proactively looking for new ways to use technology that allow us to better serve the American people, advance U.S. interests and build strong relationships with our friends and allies around the globe. We have been successful with zero trust, cloud, mobile, big data, and virtualization solutions recently, but are exploring new technology and ways it can add value to our efforts. The latest projects are mainly security related, as our organization moves towards a mindset of Zero Trust Architecture (ZTA).</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="wrap fade fade-d2">
+        <h2 class="section-title">Projects</h2>
+        <div class="content">
+            <ul>
+                <li>Exploring all technology related to Zero Trust Architecture (ZTA) and the shift from perimeter based networks to a mindset of compromise and remediation</li>
+                <li>Working with <a href="https://nodered.org/">Node-RED</a> and IoT technologies to automate systems of systems</li>
+                <li>Self hosting AI inference with <a href="https://docs.vllm.ai/">vLLM</a> and local language models on NVIDIA hardware</li>
+                <li>Building automation and monitoring dashboards with <a href="https://grafana.com/">Grafana</a> and InfluxDB</li>
+                <li>Presence detection with mmWave sensors, MQTT, and time series databases</li>
+                <li>Running a privacy conscious, self hosted infrastructure stack on <a href="https://www.proxmox.com/">Proxmox</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="blog">
+    <div class="wrap fade fade-d3">
+        <h2 class="section-title">Blog</h2>
+        <div class="post-item">
+            <div class="post-item-title">Migrated to Python</div>
+            <div class="post-item-date">2026-04-08</div>
+            <div class="post-item-desc">This site now runs on a single Python file serving Markdown content. No PHP, no MariaDB, no Node.js, no static site generator build step. Just Python, Markdown, and a Jinja2 template. Fully self-contained, runs offline.</div>
+        </div>
+    </div>
+</section>
+
+<section id="resume">
+    <div class="wrap fade fade-d4">
+        <h2 class="section-title">Résumé</h2>
+        <div class="content">
+            <p>
+                <a href="https://drive.proton.me/urls/PRC34Q65AW#j8DLxVSWq4SQ" class="btn">Download Résumé (PDF)</a>
+            </p>
+            <p style="margin-top:1rem;">
+                <a href="https://cic.ndu.edu/About/Faculty-Staff/Article-View/Article/3859406/andrew-walsh/">Official NDU Bio</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="fade fade-d5">
+    &copy; 2026 Andy Walsh
+</footer>
+
+</body>
+</html>
